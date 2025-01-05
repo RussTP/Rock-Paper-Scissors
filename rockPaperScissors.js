@@ -1,12 +1,12 @@
 let humanScore = 0;
 let computerScore = 0;
 
-//creates math random number values with min-max for computers choice
+//creates math random number values with min-max for computers choice and defines each number into a string
 function getComputerChoice() {
     const choice = {
-    1:"rock",
-    2: "paper",
-    3: "scissors"
+    0:"rock",
+    1: "paper",
+    2: "scissors"
     };
     const randomValue = Math.floor(Math.random() * 3);
     return choice[randomValue];
@@ -27,6 +27,7 @@ if (choice === "rock" || choice === "paper" || choice === "scissors")
 }
 };
 
+//Rock paper scissors game logic  rock beats scissor, paper beats rock etc. 
 function playRound(humanChoice, computerChoice) {
 if (humanChoice === computerChoice) {
     alert("Tie Game!");
@@ -36,18 +37,23 @@ else if (
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper"))
 {
-       alert(`"You win! ${humanChoice} beats ${computerChoice}"`);
+       console.log(`"You win! ${humanChoice} beats ${computerChoice}"`);
        humanScore++;
     } else {
-        alert(`"You Lose! ${computerScore} beats ${humanScore}"`)
+        console.log(`"You Lose! ${computerChoice} beats ${humanChoice}"`);
         computerScore++;
     }
-    alert(`Scores: human - ${humanScore}, Computer - ${computerScore}`);
+    console.log(`Scores: human - ${humanScore}, Computer - ${computerScore}`);
 }
 
 
+//Logic to play entire game, best out of 5
 
+function playGame() {
+for (let i = 0; i < 5; i++) {
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
-
 playRound(humanSelection, computerSelection);
+}
+}
+playGame();
