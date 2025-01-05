@@ -2,29 +2,26 @@ let humanScore = 0;
 let computerScore = 0;
 
 //creates math random number values with min-max for computers choice
-function getComputerChoice(min, max) {
-    return Math.floor(Math.random() * (max - min +1)) + min;
-   }
-
-//allows random number value to be between 1-3, and converts 1-3 to rock, paper, scissors
-let computerResultNumber = getComputerChoice(1, 3);
-let choices = {
-    1: "rock",
+function getComputerChoice() {
+    const choice = {
+    1:"rock",
     2: "paper",
     3: "scissors"
-};
+    };
+    const randomValue = Math.floor(Math.random() * 3);
+    return choice[randomValue];
 
-//shows results 
-let computerResult = choices[computerResultNumber]; 
-console.log(computerResult);
+}
+
+
 
 //humans choice rock paper scissors 
 
 function getHumanChoice() {
 let choice = prompt("Choose rock, paper, or scissors").toLowerCase();
-if (choice === "rock" || getHumanChoice === "paper" || getHumanChoice === "scissors"){
-    return choice;
-} else {
+if (choice === "rock" || choice === "paper" || choice === "scissors")
+    return choice; 
+ else {
     alert("Please enter a valid choice");
     return getHumanChoice();
 }
@@ -35,7 +32,7 @@ if (humanChoice === computerChoice) {
     alert("Tie Game!");
 }
 else if ( 
-(humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper"))
 {
