@@ -10,7 +10,6 @@ function getComputerChoice() {
     };
     const randomValue = Math.floor(Math.random() * 3);
     return choice[randomValue];
-
 }
 
 
@@ -18,14 +17,21 @@ function getComputerChoice() {
 //humans choice rock paper scissors 
 
 function getHumanChoice() {
-let choice = prompt("Choose rock, paper, or scissors").toLowerCase();
-if (choice === "rock" || choice === "paper" || choice === "scissors")
+let choice;
+while (true) {
+    choice = prompt("Choose rock, paper, or scissors");
+    if (choice) {
+        choice = choice.toLowerCase();
+if (choice === "rock" || choice === "paper" || choice === "scissors") {
     return choice; 
- else {
-    alert("Please enter a valid choice");
-    return getHumanChoice();
+   }
+ }
+
+ alert("Please enter a valid choice");
+
+ }
 }
-};
+
 
 //Rock paper scissors game logic  rock beats scissor, paper beats rock etc. 
 function playRound(humanChoice, computerChoice) {
@@ -47,7 +53,7 @@ else if (
 }
 
 
-//Logic to play entire game, best out of 5
+//Logic to play entire game, best of 5
 
 function playGame() {
 for (let i = 0; i < 5; i++) {
