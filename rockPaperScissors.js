@@ -12,6 +12,22 @@ function getComputerChoice() {
     return choice[randomValue];
 }
 
+function getHumanChoice() {
+    let choice;
+    while (true) {
+        choice = prompt("Choose rock, paper, or scissors");
+        if (choice) {
+            choice = choice.toLowerCase();
+    if (choice === "rock" || choice === "paper" || choice === "scissors") {
+        return choice; 
+       }
+     }
+    
+     alert("Please enter a valid choice");
+    
+     }
+    }
+
 
 
 //Rock paper scissors game logic  rock beats scissor, paper beats rock etc. 
@@ -33,7 +49,7 @@ else if (
     console.log(`Scores: human - ${humanScore}, Computer - ${computerScore}`);
 };
 
-const buttons = document.querySelectorAll(".selectBtn");
+const buttons = document.querySelectorAll(".choice-btn");
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         const humanChoice = button.id;
@@ -41,6 +57,8 @@ buttons.forEach((button) => {
         playRound(humanChoice, computerChoice);
     })
 })
+
+
 
 
 
