@@ -1,6 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 
+
 //creates math random number values with min-max for computers choice and defines each number into a string
 function getComputerChoice() {
     const choice = {
@@ -12,65 +13,52 @@ function getComputerChoice() {
     return choice[randomValue];
 }
 
-function getHumanChoice() {
-    let choice;
-    while (true) {
-        choice = prompt("Choose rock, paper, or scissors");
-        if (choice) {
-            choice = choice.toLowerCase();
-    if (choice === "rock" || choice === "paper" || choice === "scissors") {
-        return choice; 
-       }
-     }
-    
-     alert("Please enter a valid choice");
-    
-     }
-    }
-
 
 
 //Rock paper scissors game logic  rock beats scissor, paper beats rock etc. 
 function playRound(humanChoice, computerChoice) {
 if (humanChoice === computerChoice) {
-    alert("Tie Game!");
+return `Tie Game! You both chose ${humanChoice}`;
 }
 else if ( 
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper"))
-{
-       console.log(`"You win! ${humanChoice} beats ${computerChoice}"`);
-       humanScore++;
+{       
+        humanScore++;
+       return `"You win! ${humanChoice} beats ${computerChoice}"`;
+       
     } else {
-        console.log(`"You Lose! ${computerChoice} beats ${humanChoice}"`);
         computerScore++;
+        return `"You Lose! ${computerChoice} beats ${humanChoice}"`;
+        
     }
-    console.log(`Scores: human - ${humanScore}, Computer - ${computerScore}`);
-};
+}
 
 const buttons = document.querySelectorAll(".choice-btn");
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         const humanChoice = button.id;
         const computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
-    })
-})
+       const result = playRound(humanChoice, computerChoice);
+
+    const resultContainer = document.querySelector("#resultContainer");   
+    resultContainer.textContent = result;
+
+    const scoreDiv = document.querySelector("#runningScore");
+    scoreDiv.textContent = `Score: Human ${humanScore} - Computer ${computerScore}`;
+
+    if (humanScore === 5 || computerScore === 5) {
+    const winner = humanScore > computerScore ? "You" : "Computer";
+    document.querySelector("#runningScore");
+    runningScore.textContent = `${winner} won the game! Final Score ${humanScore} - Computer ${computerScore}`;
+   
+    }
+    });
+});
 
 
 
 
 
 
-//Logic to play entire game, best of 5
-
-/*function playGame() {
-for (let i = 0; i < 5; i++) {
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
-}
-}
-playGame();
-*/
