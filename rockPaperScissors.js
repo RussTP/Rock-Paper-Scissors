@@ -26,11 +26,11 @@ else if (
         (humanChoice === "scissors" && computerChoice === "paper"))
 {       
         humanScore++;
-       return `"You win! ${humanChoice} beats ${computerChoice}"`;
+       return `You win! ${humanChoice} beats ${computerChoice}`;
        
     } else {
         computerScore++;
-        return `"You Lose! ${computerChoice} beats ${humanChoice}"`;
+        return `You Lose! ${computerChoice} beats ${humanChoice}`;
         
     }
 }
@@ -46,7 +46,7 @@ buttons.forEach((button) => {
         resultContainer.textContent = result;
 
     const scoreDiv = document.querySelector("#runningScore");
-        scoreDiv.textContent = `Score: Human ${humanScore} - Computer ${computerScore}`;
+        scoreDiv.textContent = `Score: You ${humanScore} - Computer ${computerScore}`;
        
 
     if (humanScore === 5 || computerScore === 5) {
@@ -69,7 +69,6 @@ buttons.forEach((button) => {
 function resetGame() {
     humanScore = 0;
     computerScore = 0;
-   
     document.querySelector("#resultContainer").textContent = "";
     document.querySelector("#runningScore").textContent = "Score: You 0 - Computer 0";
 
