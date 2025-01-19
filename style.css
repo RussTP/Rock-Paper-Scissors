@@ -45,7 +45,7 @@ border-color: white;
 #runningScore, #resultContainer {
     font-size: 20px;
     font-weight: bold;
-    color: rgb(8, 194, 48);
-    text-shadow: rgb(8, 194, 48) 2px 0 10px;
+    color:rgba(173, 255, 47);
+    text-shadow: rgba(173, 255, 47) 2px 0 10px;
     
 }
