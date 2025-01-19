@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(62, 19, 131);
+}
+
+h1 {
+    text-align: center;
+    color: rgba(173, 255, 47);
+    text-shadow: rgb(8, 194, 48) 5px 0 10px;
+}
+.choiceBtn, #reset {
+    color: white;
+    background-color: rgb(35, 95, 224);
+    border-color: greenyellow;
+    border-width: 3px;
+    border-radius: 20px;
+    padding: 10px;
+    width: 120px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.choiceBtn:hover, #reset:hover {
+  
+    background-color: rgba(35, 95, 224, 0.600);
+    color: rgba(173, 255, 47);
+    font-weight: bold;
+    
+}
+
+
+.choiceBtn:disabled {
+background-color: rgba(35, 95, 224, 0.4);
+text-decoration: line-through;
+color: rgba(35, 95, 224);
+border-color: white;
+}
+
+#buttonContainer, #runningScore, #resultContainer {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+
+}
+
+#runningScore, #resultContainer {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(8, 194, 48);
+    text-shadow: rgb(8, 194, 48) 2px 0 10px;
+    
+}
